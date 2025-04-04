@@ -12,7 +12,7 @@ tt = tbeg:tstep:tend-tstep;
 
 load('lab4_num_expt2')
 
-maxlag = 100;
+maxlag = 20000;
 %Autocorrelation of yt
 Ry  = xcorr(yt,yt,maxlag);
 %tau vector
@@ -30,6 +30,14 @@ freq = fmin:fstep:fmax-fstep;
 
 plot(freq, Ry);
 xlabel("Frequency (Hz)");
-ylabel("Autocorrelation Function at maxlag = 100");
+ylabel("R_y");
+title("R_y at maxlag = 20000");
+grid on;
+grid minor;
+
+plot(tt, yt);
+xlabel("time");
+ylabel("yt");
+title("y_t at maxlag = 20000");
 grid on;
 grid minor;

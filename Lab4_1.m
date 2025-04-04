@@ -12,7 +12,7 @@ tt = tbeg:tstep:tend-tstep;
 
 load('lab4_num_expt1')
 
-maxlag = 20000;
+maxlag = 500;
 %Autocorrelation of yt
 Ry  = xcorr(yt,yt,maxlag);
 %tau vector
@@ -31,11 +31,13 @@ freq = fmin:fstep:fmax-fstep;
 plot(freq, Sy);
 xlabel("Frequency");
 ylabel("Power Spectral Density");
-title("Autocorrelation Function at maxlag = 20000");
+title("PSD at maxlag = 500");
 grid on;
 grid minor;
 
-% plot(tt, yt);
-% xlabel("time");
-% ylabel("yt");
-% grid on;
+plot(freq, Ry);
+xlabel("Frequency (Hz)");
+ylabel("R_y");
+title("R_y at maxlag = 500");
+grid on;
+grid minor;
