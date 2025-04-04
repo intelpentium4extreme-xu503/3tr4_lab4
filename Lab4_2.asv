@@ -30,6 +30,5 @@ freq = fmin:fstep:fmax-fstep;
 
 plot(freq, Ry);
 xlabel("Frequency (Hz)");
-ylabel("Autocorrelation Function at maxlag = 100");
+ylabel("Auto-");
 grid on;
-grid minor;
