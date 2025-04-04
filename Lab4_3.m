@@ -10,15 +10,15 @@ sampling_rate = 1/tstep;
 %Time window =
 tt = tbeg:tstep:tend-tstep;
 
-load('lab4_num_expt3')
+load('lab4_num_expt3');
 
-maxlag = 100;
+maxlag = 200;
 %Autocorrelation of yt
-Ry  = xcorr(yt,yt,maxlag);
+Rxy = xcorr(yt,xt,maxlag);
 %tau vector
 tau_vec = -(maxlag*tstep):tstep:maxlag*tstep;
 %Abs. PSD corresponding to yt
-Sy = abs(fftshift(fft(fftshift(Ry))));
+Sy = abs(fftshift(fft(fftshift(Rxy))));
 %define the frequency vector corresponding to tau_vec
 Ntau = length(tau_vec);
 %Nyquist sampling rate
@@ -27,3 +27,14 @@ fmin = -fmax;
 fstep = (fmax-fmin)/Ntau;
 %Frequency window
 freq = fmin:fstep:fmax-fstep;
+
+% plot(tt, xt);
+% xlabel("time");
+% ylabel("xt");
+% % title("y(t)");
+% grid on;
+% grid minor;
+
+plot(Rxy, Sy);
+grid on;
+grid minor;
